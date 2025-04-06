@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  body {
+    height: 100vh;
+    background: black;
+  }
+  
+  @import url('https://fonts.googleapis.com/css2?family=Tangerine&display=swap');
+  
+  canvas {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Glowing initials */
+  .initials {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    gap: 30px;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .initials span {
+    font-family: 'Tangerine', cursive;
+    font-size: 4em;
+    font-weight: bold;
+    color: #ff9ecb;
+    text-shadow: 0 0 8px #ff5b94, 0 0 15px #ff5b94;
+    animation: glowFloat 3s ease-in-out infinite;
+  }
+  
+  
+  @keyframes glowFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
+  /* Smoke text */
+  .smoke {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: fade 13s ease-in-out;
+    z-index: 1;
+  }
+  
+  .smoke span {
+    font-family: 'Tangerine', cursive;
+    font-size: 3em;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 10px;
+    animation: smokeMove 6s cubic-bezier(0, 0.98, 0.58, 1) infinite;
+  }
+  
+  .smoke span:nth-child(1) {
+    animation-delay: 0s;
+    color: #ff2955;
+  }
+  
+  .smoke span:nth-child(3) {
+    animation-delay: 0.2s;
+    color: #ff2955;
+  }
+  
+  @keyframes fade {
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+  }
+  
+  @keyframes smokeMove {
+    0% { filter: blur(0); }
+    40% { filter: blur(20px); }
+    100% { filter: blur(0); }
+  }
+  
